@@ -31,13 +31,3 @@ SecurePass is a cybersecurity tool designed to help users understand the mathema
     * Expected Result: Low entropy score, Red/Yellow bar, "Instantly" crack time.
 * *Test Strong Password:* Enter MyS3cur3P@ssw0rd!!.
     * Expected Result: High entropy score (green bar), crack time in years.
-
-## Screenshots
-
-![](screenshot1.png)
-
-![](screenshot2.png)
-
-![](screenshot3.png)
-
-![](screenshot4.png)
