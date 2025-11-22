@@ -1,5 +1,5 @@
-# solid-couscous
-# SecurePass: Password Strength & Entropy Visualizer
+# SecurePass
+# Password Strength & Entropy Visualizer
 
 ## Project Overview
 SecurePass is a cybersecurity tool designed to help users understand the mathematical strength of their passwords. Unlike standard checkers that only look at length, SecurePass calculates Shannon Entropy (in bits) and estimates the time required for a modern GPU to brute-force the password.
