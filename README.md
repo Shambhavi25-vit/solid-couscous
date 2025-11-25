@@ -1,43 +1,79 @@
-# SecurePass
-# Password Strength & Entropy Visualizer
+# 🔐 VITyarthi SecurePass Visualizer v2.0
 
-## Project Overview
-SecurePass is a cybersecurity tool designed to help users understand the mathematical strength of their passwords. Unlike standard checkers that only look at length, SecurePass calculates Shannon Entropy (in bits) and estimates the time required for a modern GPU to brute-force the password.
+## 📝 Overview
 
-## Features
-* Entropy Calculation: Uses Information Theory to calculate the exact randomness of a password string.
-* Dictionary Attack Prevention: Instantly flags passwords found in common "Blacklists" (e.g., password, 123456).
-* Visual Feedback: Provides a color-coded bar chart representing password strength.
-* Time-to-Crack Estimation: Calculates how long it would take to crack the password based on 100 Billion hashes/second.
+The **VITyarthi SecurePass Visualizer** is a Python command-line utility designed to help users assess the strength and security of their passwords. It calculates a password's **entropy score** (measured in bits), provides a visual strength bar, estimates the time a modern attacker would take to crack the password, and checks it against a list of common, blacklisted passwords. The tool offers actionable feedback and an automated suggestion for improving a weak password.
 
-## Technologies Used
-* Language: Python 3
-* Modules: math, os (Standard Library)
-* Concepts: Shannon Entropy, Brute-force Math, File I/O
+---
 
-## How to Run
-1.  Ensure you have Python installed.
-2.  Clone this repository or download the files.
-3.  Navigate to the project folder in your terminal.
-4.  Run the main script:
-    bash
-    python src/main.py
-    
+## ✨ Features
 
-## Testing Instructions
-* Test Weak Password: Enter password or 123456.
-    * Expected Result: Warning message "DANGER: Found in blacklist".
-* Test Medium Password: Enter cat or dog.
-    * Expected Result: Low entropy score, Red/Yellow bar, "Instantly" crack time.
-* Test Strong Password: Enter MyS3cur3P@ssw0rd!!.
-    * Expected Result: High entropy score (green bar), crack time in years.
+* **Entropy Calculation:** Calculates the cryptographic entropy of the password using the pool size (character set) and length, providing a quantified measure of strength.
+* **Visual Strength Bar:** Displays a clear, graphical representation of the password strength (WEAK, MEDIUM, or STRONG).
+* **Cracking Time Estimation:** Provides a clear estimate of the time required to crack the password, based on a massive guessing rate (100 billion guesses per second).
+* **Blacklist Check:** Validates the password against a pre-defined list of common, easily guessed passwords.
+* **Actionable Feedback:** Offers specific tips to improve password strength (e.g., increase length, add symbols, use uppercase).
+* **Improvement Suggestion:** Automatically generates a suggested, improved version of the input password.
 
-## Screenshots
+---
 
-![](screenshot1.jpeg)
+## 🛠️ Technologies/Tools Used
 
-![](screenshot2.jpeg)
+* **Primary Language:** Python 3.x
+* **Core Libraries:**
+    * `math`: Used for the $\log_2$ function in entropy calculation.
+    * `random`: Used for generating password improvement suggestions.
+    * `os`: Used for file path handling in the `validator.py`.
 
-![](screenshot3.jpeg)
+---
 
-![](screenshot4.jpeg)
+## 🚀 Steps to Install & Run the Project
+
+### Prerequisites
+* Ensure you have **Python 3.x** installed on your system.
+
+### Installation & Setup
+
+1.  **Clone or Download:** Download the project files (`main.py`, `entropy.py`, `visualizer.py`, `validator.py`, and the `data/common_passwords.txt` file).
+2.  **Organize Files:** Place all `.py` files in a single directory. Ensure the `data` directory (containing `common_passwords.txt`) is located one level up from the current directory, as suggested by the relative path in `validator.py`:
+    ```
+    /project_root
+        /data
+            common_passwords.txt
+        /scripts
+            main.py
+            entropy.py
+            visualizer.py
+            validator.py
+    ```
+    *Note: If you place all files in the same directory, you may need to adjust the file path in `validator.py`.*
+
+### Running the Application
+
+1.  **Open Terminal/Command Prompt:** Navigate to the directory containing `main.py`.
+2.  **Execute the Script:** Run the following command:
+
+    ```bash
+    python main.py
+    ```
+
+3.  **Test:** Enter a password when prompted and press **Enter**.
+4.  **Exit:** Enter `'q'` or press **Ctrl+C** to quit the program.
+
+---
+
+## 🧪 Instructions for Testing
+
+You can test the tool with various password types to confirm the accuracy of the strength assessment and feedback.
+
+| Test Case | Expected Outcome |
+| :--- | :--- |
+| **Weak (e.g., `password123`)** | **DANGER** (If in blacklist), WEAK rating, Instant crack time, multiple suggestions (length, symbol, case). |
+| **Medium (e.g., `MyCat123!`)** | MEDIUM rating, Crack time in Minutes/Days, suggestions for longer length. |
+| **Strong (e.g., `P@sswOrdGu!ard_07`)** | STRONG rating (Entropy $> 70$ bits), Crack time in Years, minimal or no suggestions. |
+| **No Input** | Program prompts for input again. |
+| **'q'** | Program exits cleanly. |
+
+---
+
+## 📸 Screenshots (Example Output)
