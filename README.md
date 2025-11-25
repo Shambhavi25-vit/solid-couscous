@@ -1,4 +1,4 @@
-# 🔐 VITyarthi SecurePass Visualizer v2.0
+# 🔐 VITyarthi SecurePass Visualizer
 
 ## 📝 Overview
 
